@@ -13,4 +13,9 @@ class Measure
   def to_s
     "#@amount #{@unit.name_for(@amount)}"
   end
+
+  def inspect
+    "#{self.class}(#{@amount} #{@unit.to_s})"
+  end
+
 end

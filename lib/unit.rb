@@ -18,6 +18,10 @@ class Unit
     @name
   end
 
+  def inspect
+    "#{self.class}(#{@name})"
+  end
+
   def coerce(amount)
     raise TypeError, "Unit can't be coerced into Integer except for multiplication" unless caller.first.include?("`*'")
 
