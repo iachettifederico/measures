@@ -30,6 +30,16 @@ class Measure
     (a_number * amount) * unit
   end
 
+  def /(a_divisor)
+    raise CANT_APPLY_OPERATION if a_divisor.is_a?(Measure) && !a_divisor.unit?(unit)
+
+    if a_divisor.is_a?(Numeric)
+      (amount / a_divisor) * unit
+    else
+      amount / a_divisor.amount
+    end
+  end
+
   def -@
     unit * (amount * -1)
   end
