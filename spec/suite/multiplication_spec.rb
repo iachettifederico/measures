@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe "multiplication" do
-  let(:meter)      { Unit["meter"] }
+  let(:meter)      { BaseUnit["meter"] }
   let(:one_meter)  { 1 * meter }
   let(:two_meters) { 2 * meter }
 

@@ -44,6 +44,14 @@ class Measure
     unit * (amount * -1)
   end
 
+  def to_base_unit
+    amount * unit.factor * unit.base_unit
+  end
+
+  def convert_to(unit)
+    (to_base_unit.amount / unit.factor) * unit
+  end
+
   def to_s
     "#{amount} #{unit.name_for(amount)}"
   end

@@ -1,15 +1,8 @@
 class Unit
-  @registered_units = {}
-
-  def self.[](name, plural: "#{name}s")
-    @registered_units[name] ||= new(name: name, plural: plural)
+  def self.registered_units
+    @registered_units ||= {}
   end
-
-  def initialize(name:, plural: )
-    @name   = name
-    @plural = plural
-  end
-
+  
   def *(number)
     Measure.for(amount: number, unit: self)
   end

@@ -1,8 +1,8 @@
 require "spec_helper"
 
 RSpec.describe "addition and substraction" do
-  let(:meter)        { Unit["meter"] }
-  let(:liter)        { Unit["liter"] }
+  let(:meter)        { BaseUnit["meter"] }
+  let(:liter)        { BaseUnit["liter"] }
   let(:one_meter)    { 1 * meter }
   let(:two_meters)   { 2 * meter }
   let(:three_meters) { 3 * meter }
