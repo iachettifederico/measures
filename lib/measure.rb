@@ -24,6 +24,12 @@ class Measure
     unit * (amount - other_measure.amount)
   end
 
+  def *(a_number)
+    raise CANT_APPLY_OPERATION unless a_number.is_a?(Numeric)
+
+    (a_number * amount) * unit
+  end
+
   def -@
     unit * (amount * -1)
   end
