@@ -39,13 +39,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  awesome_print
-  pry
-  pry-byebug
-  rake
-  rspec
-  simplecov
-  zeitwerk
+  awesome_print (~> 1.9.2)
+  pry (~> 0.13.1)
+  pry-byebug (~> 3.9.0)
+  rake (~> 13.0.6)
+  rspec (~> 3.11.0)
+  simplecov (~> 0.21.2)
+  zeitwerk (~> 2.5.4)
 
 BUNDLED WITH
    2.3.10
