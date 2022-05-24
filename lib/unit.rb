@@ -2,9 +2,13 @@ class Unit
   def self.registered_units
     @registered_units ||= {}
   end
-  
+
   def *(number)
     Measure.for(amount: number, unit: self)
+  end
+
+  def base_unit?(a_unit)
+    a_unit == base_unit
   end
 
   def to_s

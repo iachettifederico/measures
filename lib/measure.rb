@@ -1,4 +1,6 @@
 class Measure
+  include Comparable
+  
   attr_reader :amount
 
   @registered_measures = {}
@@ -48,8 +50,18 @@ class Measure
     amount * unit.factor * unit.base_unit
   end
 
+  def base_unit?(a_unit)
+    unit.base_unit?(a_unit)
+  end
+  
   def convert_to(unit)
     (to_base_unit.amount / unit.factor) * unit
+  end
+
+  def <=>(other_measure)
+    raise CANT_APPLY_OPERATION unless other_measure.is_a?(Measure) && other_measure.base_unit?(unit.base_unit)
+
+    to_base_unit.amount <=> other_measure.to_base_unit.amount
   end
 
   def to_s
