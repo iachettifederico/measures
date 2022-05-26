@@ -4,7 +4,7 @@ require_relative "lib/measures/version"
 
 Gem::Specification.new do |spec|
   spec.name = "measures"
-  spec.version = Measures::Version
+  spec.version = Measures::VERSION
   spec.authors = ["Federico Iachetti"]
   spec.email = ["iachetti.federico@gmail.com"]
 
