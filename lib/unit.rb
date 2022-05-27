@@ -1,4 +1,6 @@
 class Unit
+  attr_reader :base_unit
+
   def self.registered_units
     @registered_units ||= {}
   end

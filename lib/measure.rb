@@ -4,6 +4,7 @@ class Measure
   include Comparable
 
   attr_reader :amount
+  attr_reader :unit
 
   @registered_measures = {}
 
@@ -56,6 +57,10 @@ class Measure
     unit.base_unit?(a_unit)
   end
 
+  def base_unit
+    unit.base_unit
+  end
+
   def convert_to(unit)
     (to_base_unit.amount / unit.factor) * unit
   end
@@ -79,8 +84,6 @@ class Measure
   end
 
   private
-
-  attr_reader :unit
 
   def assert_same_unit!(a_measure)
     raise CANT_APPLY_OPERATION unless a_measure.unit?(unit)
