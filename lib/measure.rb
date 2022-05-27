@@ -1,6 +1,8 @@
+require 'bigdecimal'
+
 class Measure
   include Comparable
-  
+
   attr_reader :amount
 
   @registered_measures = {}
@@ -10,7 +12,7 @@ class Measure
   end
 
   def initialize(amount:, unit:)
-    @amount = amount
+    @amount = BigDecimal(amount.to_s)
     @unit   = unit
   end
 
@@ -53,7 +55,7 @@ class Measure
   def base_unit?(a_unit)
     unit.base_unit?(a_unit)
   end
-  
+
   def convert_to(unit)
     (to_base_unit.amount / unit.factor) * unit
   end
@@ -65,11 +67,11 @@ class Measure
   end
 
   def to_s
-    "#{amount} #{unit.name_for(amount)}"
+    "#{text_for_amount} #{unit.name_for(amount)}"
   end
 
   def inspect
-    "#{self.class}(#{amount} #{unit.to_s})"
+    "#{self.class}(#{text_for_amount} #{unit.to_s})"
   end
 
   def unit?(potential_unit)
@@ -82,6 +84,14 @@ class Measure
 
   def assert_same_unit!(a_measure)
     raise CANT_APPLY_OPERATION unless a_measure.unit?(unit)
+  end
+
+  def text_for_amount
+    if amount.truncate==amount
+      amount.to_i
+    else
+      amount.to_f
+    end
   end
 
   CANT_APPLY_OPERATION="Can't apply operation"

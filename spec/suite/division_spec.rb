@@ -21,6 +21,10 @@ RSpec.describe "division" do
     expect(eight_meters / two_meters).to eq(4)
   end
 
+  it "xxxxx" do
+    expect(one_meter / two_meters).to eq(0.5)
+  end
+
   it "it can't divide by a measure of a different unit" do
     expect {
       eight_meters / (1 * liter)
