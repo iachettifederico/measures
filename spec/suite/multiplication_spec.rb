@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe "multiplication" do
-  let(:meter)      { BaseUnit["meter"] }
+  let(:meter)      { Medidas::BaseUnit["meter"] }
   let(:one_meter)  { 1 * meter }
   let(:two_meters) { 2 * meter }
 
@@ -16,7 +16,7 @@ RSpec.describe "multiplication" do
   it "does something" do
     expect {
       one_meter * two_meters
-    }.to raise_error(RuntimeError, Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(RuntimeError, Medidas::Measure::CANT_APPLY_OPERATION)
   end
   
 end

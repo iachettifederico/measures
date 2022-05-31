@@ -1,12 +1,12 @@
 require "spec_helper"
 
 RSpec.describe "" do
-  let(:meter) { BaseUnit["meter"] }
+  let(:meter) { Medidas::BaseUnit["meter"] }
 
   describe "#to_s" do
     describe "units" do
       it "returns the name" do
-        expect(BaseUnit["meter"].to_s).to eq("meter")
+        expect(Medidas::BaseUnit["meter"].to_s).to eq("meter")
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.describe "" do
       end
 
       it "returns a string that represents a custom plural measure" do
-        two_octopi = BaseUnit["octopus", plural: "octopi"] * 2
+        two_octopi = Medidas::BaseUnit["octopus", plural: "octopi"] * 2
 
         expect(two_octopi.to_s).to eq("2 octopi")
       end
@@ -34,24 +34,24 @@ RSpec.describe "" do
   describe "#inspect" do
     describe "units" do
       it "returns the name" do
-        expect(BaseUnit["meter"].inspect).to eq("BaseUnit(meter)")
+        expect(Medidas::BaseUnit["meter"].inspect).to eq("Medidas::BaseUnit(meter)")
       end
 
       it "returns the name" do
-        expect(DerivedUnit["unit", base_unit: BaseUnit["instance"]].inspect).to eq("DerivedUnit(unit)")
+        expect(Medidas::DerivedUnit["unit", base_unit: Medidas::BaseUnit["instance"]].inspect).to eq("Medidas::DerivedUnit(unit)")
       end
     end
 
     describe "measures" do
       it "returns a string that represents a singular measure" do
-        expect((1*meter).inspect).to eq("Measure(1 meter)")
-        expect((2*meter).inspect).to eq("Measure(2 meter)")
+        expect((1*meter).inspect).to eq("Medidas::Measure(1 meter)")
+        expect((2*meter).inspect).to eq("Medidas::Measure(2 meter)")
       end
 
       it "returns a string that represents a custom plural measure" do
-        two_octopi = BaseUnit["octopus", plural: "octopi"] * 2
+        two_octopi = Medidas::BaseUnit["octopus", plural: "octopi"] * 2
 
-        expect(two_octopi.inspect).to eq("Measure(2 octopus)")
+        expect(two_octopi.inspect).to eq("Medidas::Measure(2 octopus)")
       end
     end
   end

@@ -1,8 +1,8 @@
 require "spec_helper"
 
 RSpec.describe "addition and substraction" do
-  let(:meter)        { BaseUnit["meter"] }
-  let(:liter)        { BaseUnit["liter"] }
+  let(:meter)        { Medidas::BaseUnit["meter"] }
+  let(:liter)        { Medidas::BaseUnit["liter"] }
   let(:one_meter)    { 1 * meter }
   let(:two_meters)   { 2 * meter }
   let(:three_meters) { 3 * meter }
@@ -18,13 +18,13 @@ RSpec.describe "addition and substraction" do
   it "can't add two measures of different units" do
     expect {
       one_meter + (1 * liter)
-    }.to raise_error(RuntimeError, Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(RuntimeError, Medidas::Measure::CANT_APPLY_OPERATION)
   end
 
   it "can't substract two measures of different units" do
     expect {
       one_meter - (1 * liter)
-    }.to raise_error(RuntimeError, Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(RuntimeError, Medidas::Measure::CANT_APPLY_OPERATION)
   end
 
   # DONE suma y resta entre measures de la misma unidad

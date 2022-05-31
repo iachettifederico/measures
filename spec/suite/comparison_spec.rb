@@ -1,9 +1,9 @@
 require "spec_helper"
 
 RSpec.describe "addition and substraction" do
-  let(:meter)        { BaseUnit["meter"] }
-  let(:centimeter)   { DerivedUnit["centimeter", base_unit: meter, factor: Rational(1, 100)] }
-  let(:liter)        { BaseUnit["liter"] }
+  let(:meter)        { Medidas::BaseUnit["meter"] }
+  let(:centimeter)   { Medidas::DerivedUnit["centimeter", base_unit: meter, factor: Rational(1, 100)] }
+  let(:liter)        { Medidas::BaseUnit["liter"] }
 
   it "does something" do
     expect(1 * meter == 1 * meter).to eq(true)
@@ -12,13 +12,13 @@ RSpec.describe "addition and substraction" do
   it "does something" do
     expect {
       expect(2 * meter <=> 1)
-    }.to raise_error(Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(Medidas::Measure::CANT_APPLY_OPERATION)
   end
 
   it "does something" do
     expect {
       expect(2 * meter <=> 1 * liter)
-    }.to raise_error(Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(Medidas::Measure::CANT_APPLY_OPERATION)
   end
 
   it "does something" do

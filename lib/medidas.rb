@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 
-module Measures
+module Medidas
 end
 
 require "zeitwerk"

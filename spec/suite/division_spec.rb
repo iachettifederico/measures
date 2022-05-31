@@ -1,8 +1,8 @@
 require "spec_helper"
 
 RSpec.describe "division" do
-  let(:meter)        { BaseUnit["meter"] }
-  let(:liter)        { BaseUnit["liter"] }
+  let(:meter)        { Medidas::BaseUnit["meter"] }
+  let(:liter)        { Medidas::BaseUnit["liter"] }
   let(:one_meter)    { 1 * meter }
   let(:two_meters)   { 2 * meter }
   let(:four_meters)  { 4 * meter }
@@ -28,7 +28,7 @@ RSpec.describe "division" do
   it "it can't divide by a measure of a different unit" do
     expect {
       eight_meters / (1 * liter)
-    }.to raise_error(RuntimeError, Measure::CANT_APPLY_OPERATION)
+    }.to raise_error(RuntimeError, Medidas::Measure::CANT_APPLY_OPERATION)
   end
 
 end

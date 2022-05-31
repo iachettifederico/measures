@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/measures/version"
+require_relative "lib/medidas/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "measures"
-  spec.version = Measures::VERSION
+  spec.name = "medidas"
+  spec.version = Medidas::VERSION
   spec.authors = ["Federico Iachetti"]
   spec.email = ["iachetti.federico@gmail.com"]
 
   spec.summary = "Measure system for Ruby"
   spec.description = "Add measures to your Ruby application and operate avoiding primitive obsession"
-  spec.homepage = "https://github.com/iachettifederico/measures"
+  spec.homepage = "https://github.com/iachettifederico/medidas"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/iachettifederico/measures"
-  spec.metadata["changelog_uri"] = "https://github.com/iachettifederico/measures"
+  spec.metadata["source_code_uri"] = "https://github.com/iachettifederico/medidas"
+  spec.metadata["changelog_uri"] = "https://github.com/iachettifederico/medidas"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
